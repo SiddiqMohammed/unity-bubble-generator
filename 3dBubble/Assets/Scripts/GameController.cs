@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour
     public float maxX;
     public float maxZ;
 
-    public int x = 1;
+    public int x = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -39,17 +39,22 @@ public class GameController : MonoBehaviour
 
         Vector3 randomSpawnPos = new Vector3(randomX, 10f, randomZ);
 
-        newInstance[x] = Instantiate(ball, randomSpawnPos, Quaternion.identity);
-        // print(newInstance);
-        x++;
-        // print(x);
+        newInstance.Add(Instantiate(ball, randomSpawnPos, Quaternion.identity));
+        // print(newInstance.Count);
+        // x++;
+        print("created " + newInstance.Count);
         // Instantiate(ball, spawnPoint.position, Quaternion.identity);
     }
 
     public void DestroyBalls()
     {
-        Destroy(newInstance[x]);
-        x--;
-        print(x);
+        // if (x > 0)
+        // {
+        // Destroy(newInstance[newInstance.Count]);
+            // x--;
+            // print("destroyed " + newInstance.Count);
+        // }
+        // print(x);
+        newInstance.RemoveAt(newInstance.Count - 1);
     }
 }
