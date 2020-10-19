@@ -7,6 +7,9 @@ public class reverseGravity : MonoBehaviour
     Rigidbody rb;
 
     public float lifeTime = 3f;
+    public float maxX = 5f;
+    // public float maxY;
+
 
     // Start is called before the first frame update
     void Start()
@@ -18,8 +21,8 @@ public class reverseGravity : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if (Input.GetKeyDown(KeyCode.Space))
-        // {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
         //     if (lifeTime > 0)
         //     {
         //         lifeTime -= Time.deltaTime;
@@ -31,25 +34,39 @@ public class reverseGravity : MonoBehaviour
         //     }
 
         //     // Destroy(gameObject);
-        // }       
+            yForce();
+            xForce();
+        }       
         // rb.AddForce(Vector3.up * 1f);
         // rb.AddForce(Vector3.right * 1f);
-        yForce();
-        xForce();
+        // yForce();
+        // xForce();
     }
 
     void xForce()
     {
-        float randomY = Random.Range(-maxZ, maxZ);
+        float direction = Random.Range(0, 10);
 
-        rb.AddForce(Vector3.right * randomY);
+        float randomX = Random.Range(-maxX, maxX);
+
+        print(direction%2);
+        
+        if (direction % 2 == 0)
+        {
+            rb.AddForce(Vector3.right * randomX * 100);
+        }
+        else
+        {
+            rb.AddForce(Vector3.left * randomX);
+        }
+
     }
 
     void yForce()
     {
-        float randomX = Random.Range(-maxX, maxX);
+        // float randomY = Random.Range(0f, 5f);
         
-        rb.AddForce(Vector3.right * randomX);
+        rb.AddForce(Vector3.up * 100f);
     }
 
 }

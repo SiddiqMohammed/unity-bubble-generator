@@ -21,38 +21,42 @@ public class spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // if (Input.GetKeyDown(KeyCode.Space))    
+        // {
+        //     w = true;
+        // }
+
+        // if (Input.GetMouseButtonDown(0))
+        // {
+        //     if(w)
+        //     {
+        //         w = false;
+        //     }
+        //     else
+        //     {
+        //         w = true;
+        //     }
+        // }
+        // if(w)
+        // {
+        //     // if (birthTime <= 0)
+        //     // {
+        //         generateBubble();
+        //     //     birthTime = 1f;
+        //     // }
+
+        //     if (lifeTime <= 0)
+        //     {
+        //         w = false;
+        //         lifeTime = 1f;
+        //     }
+            
+        //     // birthTime -= Time.deltaTime;
+        //     lifeTime -= Time.deltaTime;
+        // }
         if (Input.GetKeyDown(KeyCode.Space))    
         {
-            w = true;
-        }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            if(w)
-            {
-                w = false;
-            }
-            else
-            {
-                w = true;
-            }
-        }
-        if(w)
-        {
-            // if (birthTime <= 0)
-            // {
-                generateBubble();
-            //     birthTime = 1f;
-            // }
-
-            if (lifeTime <= 0)
-            {
-                w = false;
-                lifeTime = 1f;
-            }
-            
-            // birthTime -= Time.deltaTime;
-            lifeTime -= Time.deltaTime;
+            generateBubble();
         }
     }
 
